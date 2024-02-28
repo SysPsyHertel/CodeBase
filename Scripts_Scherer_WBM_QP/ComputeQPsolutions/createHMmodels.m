@@ -1,17 +1,18 @@
-function  modelHM = createHMmodels(MicromodPath, HMresPath)
-% Function to create host-microbiome WBM models.
+function  modelHM = createHMmodels(model, MicromodPath, HMresPath)
+% Function to create host-microbiome models
 %
 % INPUT
-% modelPath     Path to directory with microbiome models.
-% resPath       Path to a directory where host-microbiome WBM models. WBMs are saved
+% model         Whole-body model that gets personalized
+% modelPath     Path to directory with microbiome models
+% resPath       Path to a directory where host-microbiome models are saved
 %
 % OUTPUT
 % Microbiome-personalized Whole-body models
 %
-% Author:  Tim Hensen, Daniel Fässler, 2023
+% Author:  Tim Hensen, Daniel Fässler, 2024
 
-modelName = 'Harvey';
-model = loadPSCMfile(modelName);
+% modelName = 'Harvey';
+% model = loadPSCMfile(modelName);
 
 dInfo = dir(MicromodPath);
 modelList = {dInfo.name};

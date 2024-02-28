@@ -1,16 +1,17 @@
-﻿function [qpResults] = getPersonalizedQP_solutions(modPath,resPath)
-% Function to optain QP solutions of a personalized WBM.
+function [qpResults] = getPersonalizedQP_solutions(model, modPath, resPath)
+% Function to optain QP solutions of a personalized WBM
 %
 % INPUT
-% modelPath     Path to directory with host-microbiome WBM models.
-% resPath       Path to a directory where the solution table is saved.
+% model         Whole-body model (not personalized) to readout reactions
+% modelPath     Path to directory with host-microbiome models
+% resPath       Path to a directory where the solution table is saved
 %
 % OUTPUT
 % Table containing sample names, a variable (feasible) indicating if the
 % solution of the QP model exists, solution vector of the QP solution of
-% all reactions of the microbiome-personalized WBM.
+% all reactions of the microbiome-personalized WBM
 %
-% Author:  Tim Hensen, Daniel Fässler, 2023
+% Author:  Tim Hensen, Daniel Fässler, 2024
 
 changeCobraSolver('ibm_cplex', 'LP', -1);
 changeCobraSolver('ibm_cplex', 'QP', -1);
@@ -25,11 +26,11 @@ sampNames = extractBetween(modelList, 'HM_', '.');
 param.minNorm = 1e-6;
 
 % Get rxns from Harvey
-modelName = 'Harvey';
-male = loadPSCMfile(modelName);
+% modelName = 'Harvey';
+% model = loadPSCMfile(modelName);
 
 % Preallocate qpResults matrix
-qpResults(1,:) = ["sampName"; "feasible"; male.rxns];
+qpResults(1,:) = ["sampName"; "feasible"; model.rxns];
 
 for k = 1:length(sampNames)
     % Prepare the variables temporarily storing the simulation results
@@ -51,9 +52,9 @@ for k = 1:length(sampNames)
 
     % Check if solution exists
     if QP_calc.stat == 0
-        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; repelem(NaN, numel(male.rxns))'];
+        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; repelem(NaN, numel(model.rxns))'];
     else
-        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; QP_calc.v(1:numel(male.rxns))];
+        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; QP_calc.v(1:numel(model.rxns))];
     end
 
     disp(k);
