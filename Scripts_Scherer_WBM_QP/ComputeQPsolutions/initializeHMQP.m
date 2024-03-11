@@ -11,13 +11,13 @@ resPath = '/home/openshift/brain/WBM/QP_RE/New/Results';
 
 % Load (curated) WBM
 load Harvey_104b_8methoxykynurenate_PhysC
-model = modelC;
+male = modelC;
 
 % Create microbiome-personalized WBMs
-createHMmodels(model, MicromodPath, HMresPath);
+createHMmodels(male, MicromodPath, HMresPath);
 
 % Get wild-type solutions
-getPersonalizedQP_solutions(model, HMresPath,resPath);
+getPersonalizedQP_solutions(male, HMresPath,resPath);
 
 % Gene-list for which knock-out QP solutions should be computed
 % (VMH Identifier and name)
@@ -25,5 +25,5 @@ geneMarkerList = {'5053.1', '', 'PAH';
                    '8942.1', '', 'KYNU'};
                
 % Function to perform knockout QP-solutions
-getPersonalizedQP_solutions_KO(model, HMresPath, resPath, geneMarkerList);
+getPersonalizedQP_solutions_KO(male, HMresPath, resPath, geneMarkerList);
 
