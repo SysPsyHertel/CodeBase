@@ -1,4 +1,4 @@
-function [qpResults_ko] = getPersonalizedQP_solutions_KO(model, modPath, resPath, geneMarkerList)
+function [qpResults_ko] = getPersonalizedQP_solutions_KO(male, modPath, resPath, geneMarkerList)
 % Function to optain QP solutions of a personalized WBM after knockout
 %
 % INPUT
@@ -38,10 +38,10 @@ param.minNorm = 1e-6;
 %model = loadPSCMfile(modelName);
 
 % Preallocate qpResults matrix
-qpResults_ko(1,:) = ["sampName"; "feasible"; model.rxns];
+qpResults_ko(1,:) = ["sampName"; "feasible"; male.rxns];
 
 for g = 1:size(geneMarkerList, 1)
-    [IEMRxns, ~] = getRxnsFromGene(model, geneMarkerList{g,1}, causal);
+    [IEMRxns, ~] = getRxnsFromGene(male, geneMarkerList{g,1}, causal);
 
     if ~isempty(IEMRxns)
         for k = 1:length(sampNames)
@@ -71,9 +71,9 @@ for g = 1:size(geneMarkerList, 1)
 
             % Check if solution exists
         if QP_calc.stat == 0
-            qpResults_ko(k + 1, :) = [sampNames(k); QP_calc.stat; repelem(NaN, numel(model.rxns))'];
+            qpResults_ko(k + 1, :) = [sampNames(k); QP_calc.stat; repelem(NaN, numel(male.rxns))'];
         else
-            qpResults_ko(k + 1, :) = [sampNames(k); QP_calc.stat; QP_calc.v(1:numel(model.rxns))];
+            qpResults_ko(k + 1, :) = [sampNames(k); QP_calc.stat; QP_calc.v(1:numel(male.rxns))];
         end
         end
 

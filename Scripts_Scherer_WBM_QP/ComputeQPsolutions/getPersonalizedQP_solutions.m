@@ -1,4 +1,4 @@
-function [qpResults] = getPersonalizedQP_solutions(model, modPath, resPath)
+function [qpResults] = getPersonalizedQP_solutions(male, modPath, resPath)
 % Function to optain QP solutions of a personalized WBM
 %
 % INPUT
@@ -30,7 +30,7 @@ param.minNorm = 1e-6;
 % model = loadPSCMfile(modelName);
 
 % Preallocate qpResults matrix
-qpResults(1,:) = ["sampName"; "feasible"; model.rxns];
+qpResults(1,:) = ["sampName"; "feasible"; male.rxns];
 
 for k = 1:length(sampNames)
     % Prepare the variables temporarily storing the simulation results
@@ -52,9 +52,9 @@ for k = 1:length(sampNames)
 
     % Check if solution exists
     if QP_calc.stat == 0
-        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; repelem(NaN, numel(model.rxns))'];
+        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; repelem(NaN, numel(male.rxns))'];
     else
-        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; QP_calc.v(1:numel(model.rxns))];
+        qpResults(k + 1, :) = [sampNames(k); QP_calc.stat; QP_calc.v(1:numel(male.rxns))];
     end
 
     disp(k);
