@@ -1,5 +1,5 @@
 # Readme
-
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.csbj.2025.03.012-blue)](https://doi.org/10.1016/j.csbj.2025.03.012)
 ## The folder "CRC_study" contains all necessary files for computing microbiome community models, redundancy measures and statistical analysis of the CRCstudy
 ## The folder "IBD_study" contains all necessary files for computing redundancy measures and statistical analysis of the IBD study
 ## The file "comparisons_redundancy.R" compares the derived measures of functional redundancy with traditional appraoches that investigate community-level redundancy (based onRao's quadratic entropy).

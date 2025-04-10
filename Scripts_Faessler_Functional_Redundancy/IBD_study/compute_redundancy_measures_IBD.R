@@ -24,7 +24,7 @@ mets <- dtax$Metabolite
 
 string_counts <- table(mets)
 sorted_counts <- sort(string_counts, decreasing = TRUE)
-mets <- names(sorted_counts[sorted_counts>5])
+mets <- names(sorted_counts)
 
 sampnames <- colnames(dnormcov)[2:ncol(dnormcov)]
 
