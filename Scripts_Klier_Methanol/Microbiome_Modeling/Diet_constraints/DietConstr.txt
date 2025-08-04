@@ -1,0 +1,9 @@
+Flux (mmol/human*day) =  (metabolite amount (g/day/person)) / molecular weight) * 1000
+
+
+1 x Apple (200g)
+1% pectin
+molecular weight 100 kDa
+
+
+Flux = (0.01*200)/100     *1000 = 20 
