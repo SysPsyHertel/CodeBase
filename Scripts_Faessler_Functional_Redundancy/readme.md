@@ -1,4 +1,4 @@
-### Scripts for \n "Characterising functional redundancy in microbiome communities via relative entropy"
+### Scripts for "Characterising functional redundancy in microbiome communities via relative entropy"
 [![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.csbj.2025.03.012-blue)](https://doi.org/10.1016/j.csbj.2025.03.012)
 
 This repository contains all the necessary files for computing microbiome community models, redundancy measures, and performing statistical analysis on both the  colorectal cancer 
