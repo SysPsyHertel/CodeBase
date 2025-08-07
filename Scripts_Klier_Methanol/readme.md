@@ -12,7 +12,11 @@ Contains scripts needed for:
 - Calculating individual maximum secretion fluxes
 - Identifying which strains in AGORA2 can secrete methanol
 
-### `Statistical analysis/`
+### `Statistical analysis of SHIP data`
 Contains scripts needed for:
-- XXX
+- Descriptive anaylsis of SHIP-START-0 and SHIP-TREND-0
+- Linear regression linking dietary intake to metabolite levels
+- Exploration of urinary methanol in relation to lifestyle factors
+- Investigation of urinary methanol as a predictor of mortality rate
+- Predicting Urinary Methanol from FFQ Data
 
