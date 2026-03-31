@@ -1,7 +1,5 @@
-
-abunFilePath = 'C:/Users/faesslerd/Documents/Projects/SHIP_MicrobiomeModelling/MODEL/ag2_mapping_mphl_1200.csv'
+abunFilePath = 'C:/Users/faesslerd/Documents/Projects/SHIP_MicrobiomeModelling/MODEL/agora2_mapped_abundances.csv'
 [normalizedCoverage,normalizedCoveragePath] = normalizeCoverage(abunFilePath)
-
 
 initCobraToolbox
 solverOK=changeCobraSolver('ibm_cplex','LP');

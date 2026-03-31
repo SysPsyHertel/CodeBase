@@ -153,4 +153,4 @@ effects$VMHID <- mets
 # Assuming your dataframe is named df
 effects <- effects[, c("VMHID", setdiff(names(effects), "VMHID"))]
 
-write.xlsx(effects, 'E:/BW/ecological_direct_total_effects_M4_T0_1838.xlsx', rowNames=FALSE)
+write.xlsx(effects, 'E:/BW/ecological_direct_total_effects_M4_T0.xlsx', rowNames=FALSE)
